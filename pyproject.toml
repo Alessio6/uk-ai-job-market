@@ -1,7 +1,7 @@
 [project]
 name = "uk-ai-job-market"
 version = "0.1.0"
-description = "Add your description here"
+description = "An end-to-end project analysing the UK job market for AI, ML and data science roles."
 readme = "README.md"
 authors = [{ name = "Alessio" }]
 requires-python = ">=3.15"
