@@ -3,8 +3,8 @@
 An end-to-end project analysing the UK job market for AI, ML and data science roles. It collects job postings daily, analyses which skills, salaries and locations are in demand, trains models to predict salary band from job descriptions, and builds an LLM-powered assistant that matches a CV to relevant roles and highlights skill gaps. Each stage is measured: statistical analysis for the insights, benchmarked model comparisons for the ML, and a hand-labelled evaluation set for the assistant.
 
 ## Status
-- [ ] Layer 1 – Data pipeline & market analysis *(in progress)*
-- [ ] Layer 2 – Salary/seniority prediction models & API
+- [ /] Layer 1 – Data pipeline & market analysis *complete*
+- [ ] Layer 2 – Salary/seniority prediction models & API *in progress*
 - [ ] Layer 3 – LLM CV-to-job matching assistant with evals
 
 ## Questions this project answers
