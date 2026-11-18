@@ -18,5 +18,28 @@ Python · DuckDB · pandas · scikit-learn · PyTorch · MLflow · FastAPI · Do
 ## Data
 Job postings from the [Adzuna API](https://developer.adzuna.com/). Raw data is not redistributed in this repo.
 
+## Pipeline
+```
+Adzuna API ──► data/raw/<timestamp>/*.json ──► DuckDB `jobs` (upsert, first/last seen)
+           ──► `jobs_clean` (salary, region, remote, seniority, role family, reposts)
+           ──► `job_skills` (regex skill extraction)  ──► notebooks / reports/figures
+```
+
+## Quick start
+```powershell
+uv sync                                              # Python 3.12 + dependencies
+copy .env.example .env                               # then add your Adzuna app_id / app_key
+uv run python -m uk_ai_job_market.pipeline           # fetch -> load -> clean -> skills
+uv run pytest                                        # tests
+```
+Search terms live in `config/searches.yaml`, skill patterns in `config/skills.yaml`.
+To collect daily on Windows: `powershell -ExecutionPolicy Bypass -File scripts\register_task.ps1`.
+
+## Limitations (so far)
+- Single data source (Adzuna); search results include only the first ~500 characters of each description,
+  so keyword-based skill rates are lower bounds.
+- Many salaries are Adzuna estimates (`salary_is_predicted`); salary findings use only advertised salaries.
+- Seniority, role family and remote status are derived from keyword rules, not ground truth.
+
 ## Use of AI tools
 Built with help from Claude Code for implementation. Project design, experiment choices, evaluation and analysis are my own.

@@ -1,0 +1,51 @@
+# Skill -> list of regex patterns (matched case-insensitively against title + description).
+# Add or tweak patterns here; re-run `python -m uk_ai_job_market.process.skills` to rebuild job_skills.
+# Remember to measure changes against data/labels/skills_labelled.csv.
+skills:
+  # Languages
+  python: ['\bpython\b']
+  sql: ['\bsql\b']
+  # (?-i:...) makes just that part case-sensitive, so "R" matches but "r" doesn't; excludes R&D.
+  r: ['(?-i:\bR\b)(?![&/]D)', '\brstudio\b', '\btidyverse\b']
+  scala: ['\bscala\b']
+  java: ['\bjava\b(?!script)']
+
+  # ML / DL frameworks
+  pytorch: ['\bpytorch\b', '\btorch\b']
+  tensorflow: ['\btensorflow\b', '\bkeras\b']
+  scikit-learn: ['\bscikit[- ]learn\b', '\bsklearn\b']
+  hugging face: ['\bhugging ?face\b', '\btransformers library\b']
+  xgboost: ['\bxgboost\b', '\blightgbm\b', '\bcatboost\b']
+
+  # Data tooling
+  spark: ['\bspark\b', '\bpyspark\b']
+  databricks: ['\bdatabricks\b']
+  snowflake: ['\bsnowflake\b']
+  dbt: ['\bdbt\b']
+  airflow: ['\bairflow\b']
+  kafka: ['\bkafka\b']
+  pandas: ['\bpandas\b']
+
+  # Cloud / infra
+  aws: ['\baws\b', 'amazon web services', '\bsagemaker\b']
+  azure: ['\bazure\b']
+  gcp: ['\bgcp\b', 'google cloud', '\bvertex ai\b', '\bbigquery\b']
+  docker: ['\bdocker\b']
+  kubernetes: ['\bkubernetes\b', '\bk8s\b']
+  terraform: ['\bterraform\b']
+  mlops: ['\bmlops\b', '\bmlflow\b', '\bkubeflow\b']
+
+  # GenAI
+  llm: ['\bllms?\b', 'large language models?']
+  generative ai: ['\bgen ?ai\b', 'generative ai']
+  rag: ['\brag\b', 'retrieval[- ]augmented']
+  langchain: ['\blangchain\b', '\blanggraph\b', '\bllamaindex\b']
+  agents: ['\bai agents?\b', '\bagentic\b', '\bmulti-agent\b']
+  vector databases: ['\bvector (?:db|database|store|search)s?\b', '\bpinecone\b', '\bpgvector\b', '\bchroma\b', '\bweaviate\b']
+
+  # Methods
+  nlp: ['\bnlp\b', 'natural language processing']
+  computer vision: ['\bcomputer vision\b', '\bopencv\b']
+  deep learning: ['\bdeep learning\b', '\bneural networks?\b']
+  statistics: ['\bstatistic(?:s|al)\b']
+  a/b testing: ['\ba/b test', '\bexperimentation\b']

@@ -1,0 +1,18 @@
+# Search terms sent to the Adzuna GB search endpoint ("what" parameter).
+# Edit this list to change what gets collected - no code changes needed.
+searches:
+  - machine learning engineer
+  - AI engineer
+  - data scientist
+  - data engineer
+  - AI researcher
+  - machine learning researcher
+  - LLM engineer
+  - MLOps engineer
+  - NLP engineer
+  - applied scientist
+
+# Pagination / politeness settings.
+results_per_page: 50     # Adzuna maximum
+max_pages: 10            # per search term -> up to 500 postings per term per run
+sleep_seconds: 1.5       # pause between requests
